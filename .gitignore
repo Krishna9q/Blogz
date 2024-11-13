@@ -1,0 +1,61 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+logs/
+
+# Dependency directories
+jspm_packages/
+
+# Build directories
+dist/
+build/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE or editor settings
+.vscode/
+.idea/
+
+# Test coverage
+coverage/
+
+# npm-debug file
+npm-debug.log*
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Next.js build output
+.next/
+
+# Nuxt.js build output
+.nuxt/
+
+# Serverless deployment artifacts
+.serverless/
+
+# Cloudinary
+cloudinary_config.json
+
+# Ignore config files
+*.sublime-project
+*.sublime-workspace
+
+# Ignore config files for some editors
+.vscode/
+.idea/
+
+# Ignore local database files
+*.sqlite
+*.db
+
+# Ignore package-lock.json and yarn.lock if you want to ignore dependency versions
+# package-lock.json
+# yarn.lock
