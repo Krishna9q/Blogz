@@ -15,10 +15,12 @@ const connect = async () => {
   try {
     const connection = await mongoose.connect(`${MONGO_URI}`);
     console.log(
-      `✅ Database connection success : ${connection.connection.host}`
+      `success connected : ${connection.connection.host}`
     );
   } catch (error) {
-    console.log(`❌ Database connection failed : ${error.message}}`);
+    console.log(`Error while Connecting to Database ${error.message}`);
+    
+    
   }
 };
 
