@@ -1,20 +1,14 @@
 const { Router } = require("express");
 const userModel = require("../models/user");
 const router = Router();
-const multer = require("multer")
-const path = require("path")
+const multer = require("multer");
+const path = require("path");
+const { uploadToCloudinary,upload } = require("../Utils/cloudinary");
 
-const storage = multer.diskStorage({
-  destination :function(req , file , cb){
-      cb(null , path.resolve(`./public/images/`))
-  },
-  filename : function (req, file , cb){
-      const fileName = `${Date.now()}${file.originalname}`;
-      cb(null , fileName)
-  }
-});
 
-const upload = multer({ storage : storage});
+
+
+
 
 router.get("/signin", (req, res) => {
   return res.render("signin");
@@ -32,10 +26,9 @@ router.post("/signin", async (req, res) => {
       email,
       password
     );
-    
   } catch (error) {
     return res.render("signup", {
-      error : "Incorrect Email or Password",
+      error: "Incorrect Email or Password",
     });
   }
 
@@ -43,28 +36,37 @@ router.post("/signin", async (req, res) => {
 });
 
 // Create User
-router.post("/signup",upload.single("profileImage"), async (req, res) => {
-  const { fullName, email, password } = req.body;
-  
-  
 
-  await userModel.create({
-    fullName,
-    email,
-    password,
-    profileImageURL :  `images/${req.file.filename}`
-  });
-  console.log("User created");
+router.post("/signup", upload.single("profileImage"), async (req, res) => {
+  try {
+    const { fullName, email, password } = req.body;
+    console.log("FILE PATH ------------->  ",req.file.path);
 
-  // console.log(userModel);
+    // const profileImgUrl = req.file.path;
+    const url = await uploadToCloudinary(req.file.path)
+    console.log("URL---------------> ",url);
+    
+    const u = await userModel.create({
+      fullName,
+      email,
+      password,
+      profileImageURL: url,
+    });
+    console.log("User created");
 
+    console.log(u);
+  } catch (error) {
+    console.log(error.message);
+
+    throw error;
+  }
   return res.redirect("/");
 });
 
-router.get("/logout" ,(req , res)=>{
+router.get("/logout", (req, res) => {
   console.log("Logout method");
-  
-    res.clearCookie("token").redirect("/");
-})
+
+  res.clearCookie("token").redirect("/");
+});
 
 module.exports = router;
