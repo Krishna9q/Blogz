@@ -3,12 +3,7 @@ const userModel = require("../models/user");
 const router = Router();
 const multer = require("multer");
 const path = require("path");
-const { uploadToCloudinary,upload } = require("../Utils/cloudinary");
-
-
-
-
-
+const { uploadToCloudinary, upload } = require("../Utils/cloudinary");
 
 router.get("/signin", (req, res) => {
   return res.render("signin");
@@ -37,15 +32,15 @@ router.post("/signin", async (req, res) => {
 
 // Create User
 
-router.post("/signup", upload.single("profileImage"), async (req, res) => {
+router.post("/signup",upload.single("profileImage") ,async (req, res) => {
   try {
     const { fullName, email, password } = req.body;
-    console.log("FILE PATH ------------->  ",req.file.path);
+    console.log("FILE PATH ------------->  ", req.file.path);
 
     // const profileImgUrl = req.file.path;
-    const url = await uploadToCloudinary(req.file.path)
-    console.log("URL---------------> ",url);
-    
+    const url = await uploadToCloudinary(req.file.path);
+    console.log("URL---------------> ", url);
+
     const u = await userModel.create({
       fullName,
       email,
