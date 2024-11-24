@@ -9,16 +9,7 @@
 
     <div class="container mt-3">
       <form action="/blog/" method="post" enctype="multipart/form-data">
-        <div class="mb-3">
-          <label for="coverImage" class="form-label" >CoverImage</label>
-          <input
-            type="file"
-            class="form-control"
-            id="coverImage"
-            name="coverImage"
-            aria-describedby="coverImage"
-          />
-        </div>
+    
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
           <input
@@ -30,6 +21,16 @@
           />
         </div>
 
+        <div class="mb-3">
+          <label for="coverImage" class="form-label" >Cover Image</label>
+          <input
+            type="file"
+            class="form-control"
+            id="coverImage"
+            name="coverImage"
+            aria-describedby="coverImage"
+          />
+        </div>
         <div class="mb-3">
           <label for="body">Body</label>
           <textarea class="form-control" name="body" id="body"></textarea>

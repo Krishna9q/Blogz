@@ -59,6 +59,6 @@ app.use('/blog' ,blogRoutes)
 
 const PORT = process.env.PORT || 8000;
 connect();
-app.listen(PORT , ()=>console.log(`Application stated on PORT: ${PORT}`));
+app.listen(PORT , ()=>console.log(`Application stated on PORT: ${PORT} :  http://localhost:${PORT}`));
 
 

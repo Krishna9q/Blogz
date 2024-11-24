@@ -34,7 +34,7 @@ router.post("/", upload.single("coverImage"), async (req, res) => {
     createdBy: req.user._id,
     coverImageURL: blogImageUrl,
   });
-  console.log(blog);
+  // console.log(blog);
 
   return res.redirect("/");
 });
