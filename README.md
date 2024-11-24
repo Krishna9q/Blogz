@@ -20,6 +20,18 @@ A feature-rich blog application where users can sign up, log in, create blogs wi
 
 ---
 
+📁 Project Structure
+│  
+├── public/           # Static assets (CSS, images, JS)  
+├── views/            # EJS templates for pages  
+├── routes/           # Application routes  
+├── models/           # Database schemas  
+├── middleware/       # Middleware for authentication and validation  
+├── app.js            # Main server file  
+└── package.json      # Dependencies and scripts  
+
+---
+
 ## 🌐 **Live Demo**  
 🔗 [Krishna Blogz](https://krishna-blogz.vercel.app/)  
 
@@ -29,4 +41,4 @@ A feature-rich blog application where users can sign up, log in, create blogs wi
 
 ### **1. Clone the Repository**  
 ```bash  
-git clone https://github.com/Krishna9q/BlogZ-Node-Application.git  
+https://github.com/Krishna9q/BlogZ-Node-Application.git  
