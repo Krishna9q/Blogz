@@ -21,7 +21,8 @@ A feature-rich blog application where users can sign up, log in, create blogs wi
 ---
 
 ## 📁 Project Structure
-
+ 
+│  
 ├── public/           # Static assets (CSS, images, JS)  
 ├── views/            # EJS templates for pages  
 ├── routes/           # Application routes  
@@ -29,6 +30,7 @@ A feature-rich blog application where users can sign up, log in, create blogs wi
 ├── middleware/       # Middleware for authentication and validation  
 ├── app.js            # Main server file  
 └── package.json      # Dependencies and scripts  
+
 
 ---
 
