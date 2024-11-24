@@ -1,7 +1,4 @@
-# Writing the styled README content into a file named "README.md"
-
-readme_content = """
-# 🚀 **Krishna Blogz**  
+# 🚀 **Blogz App**  
 
 A feature-rich blog application where users can sign up, log in, create blogs with images, and comment on others' blogs.  
 
