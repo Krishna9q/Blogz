@@ -20,8 +20,8 @@ A feature-rich blog application where users can sign up, log in, create blogs wi
 
 ---
 
-📁 Project Structure
-│  
+## 📁 Project Structure
+
 ├── public/           # Static assets (CSS, images, JS)  
 ├── views/            # EJS templates for pages  
 ├── routes/           # Application routes  
