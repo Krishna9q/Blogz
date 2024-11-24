@@ -1,6 +1,6 @@
 # 🚀 **Blogz App**  
 
-A feature-rich blog application where users can sign up, log in, create blogs with images, and comment on others' blogs.  
+A minimal blog application where users can sign up, log in, create blogs with images, and comment on others' blogs.  
 
 ---
 
