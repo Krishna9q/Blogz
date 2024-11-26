@@ -29,4 +29,9 @@ A minimal blog application where users can sign up, log in, create blogs with im
 
 ### **1. Clone the Repository**  
 ```bash  
-https://github.com/Krishna9q/BlogZ-Node-Application.git  
+https://github.com/Krishna9q/BlogZ-Node-Application.git
+
+### **2. Install Dependency**  
+```bash  
+Nmp i
+
