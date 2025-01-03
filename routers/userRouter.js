@@ -32,11 +32,17 @@ router.post("/signin", async (req, res) => {
 
 // Create User
 
-router.post("/signup",upload.single("profileImage") ,async (req, res) => {
+router.post("/signup", upload.single("profileImage"), async (req, res) => {
   try {
     const { fullName, email, password } = req.body;
     console.log("FILE PATH ------------->  ", req.file.path);
-
+    
+    const existingUser = await userModel.findOne({ email });
+    if (existingUser) {
+      return res.render("signup", {
+        error: "User already exists with this email",
+      });
+    }
     // const profileImgUrl = req.file.path;
     const url = await uploadToCloudinary(req.file.path);
     console.log("URL---------------> ", url);
