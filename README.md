@@ -2,7 +2,7 @@
 
 A minimal blog application where users can sign up, log in, create blogs with images, and comment on others' blogs.  
 
----
+--- 
 
 ## 📌 **Features**  
 ✔️ **User Authentication:** Secure sign-up and log-in functionality.  
