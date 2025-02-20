@@ -2,7 +2,7 @@
   "taskDefinitionArn": "arn:aws:ecs:ap-south-1:476114117307:task-definition/node-app-task:1",
   "containerDefinitions": [
       {
-          "name": "node-app-container",
+          "name": "my-node-app-container",
           "image": "476114117307.dkr.ecr.ap-south-1.amazonaws.com/nodeapp:latest",
           "cpu": 0,
           "portMappings": [
