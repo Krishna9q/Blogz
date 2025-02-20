@@ -3,7 +3,7 @@ name: Build and Push to AWS ECR
 on:
   push:
     branches:
-      - main  # Change this to the branch you want to trigger the workflow
+      - master # Change this to the branch you want to trigger the workflow
 
 jobs:
   build-and-push:
@@ -24,6 +24,25 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Set Environment Variables
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: my_node_app  # Change this to your ECR repository name
+          IMAGE_TAG: latest
+        run: echo "ECR_REPOSITORY=${ECR_REPOSITORY}" >> $GITHUB_ENV
+
+      - name: Delete Previous Latest Image
+        run: |
+          # Find and delete the existing "latest" tag
+          IMAGE_EXISTS=$(aws ecr list-images --repository-name $ECR_REPOSITORY --query 'imageIds[?imageTag==`latest`]' --output text)
+          
+          if [ -n "$IMAGE_EXISTS" ]; then
+            echo "Deleting existing latest image..."
+            aws ecr batch-delete-image --repository-name $ECR_REPOSITORY --image-ids imageTag=latest
+          else
+            echo "No existing latest image found. Skipping deletion."
+          fi
 
       - name: Build, Tag, and Push Docker image
         env:
