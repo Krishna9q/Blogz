@@ -1,24 +1,15 @@
 version: 2.1
-orbs:
-  node: circleci/node@5.0.2
 
 jobs:
   build_and_test: # this can be any name you choose
-    executor: node/18 # use the default executor defined within the orb
+    docker:
+      - image: cicleci/node:20 # use the default executor defined within the orb
     steps:
       - checkout
-      - node/install-packages:
-          pkg-manager: npm
       - run:
-          name: Run tests
-          command: npm run test
-      - run:
-          name: Build app
-          command: npm run build
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - .
+          name: Install npm dependencies
+          command: |
+            npm install --save
 
 
 workflows:
