@@ -3,7 +3,7 @@ version: 2.1
 executors:
   docker-executor:
     docker:
-      - image: circleci/node:18  # Using Node.js 18 as the base image
+      - image: circleci/node@7.1.0  # Using Node.js 18 as the base image
     working_directory: ~/project
 
 jobs:
