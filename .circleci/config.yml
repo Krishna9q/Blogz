@@ -1,14 +1,10 @@
 version: 2.1
 
-executors:
-  docker-executor:
-    docker:
-      - image: circleci/node@7.1.0  # Using Node.js 18 as the base image
-    working_directory: ~/project
 
 jobs:
-  build_and_push:
-    executor: docker-executor
+ build:
+    docker:
+      - image: circleci/node:latest
     steps:
       - checkout  # Pull the latest code
 
@@ -17,7 +13,7 @@ jobs:
 
       - run:
           name: Build Docker Image
-          command: docker build -t your-dockerhub-username/your-node-app:latest .
+          command: docker build -t krishnasadhu/circleciblog:latest .
 
       - run:
           name: Log in to Docker Hub
@@ -26,6 +22,8 @@ jobs:
       - run:
           name: Push Docker Image to Docker Hub
           command: docker push krishnasadhu/circleciblog:latest
+
+
 
 workflows:
   version: 2
